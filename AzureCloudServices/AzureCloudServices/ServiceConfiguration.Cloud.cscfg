@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureCloudServices" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2012-10.1.8">
+  <Role name="AzureCloudServices.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
+		<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint={Your Namespace};SharedSecretIssuer=owner;SharedSecretValue={Your Key}" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="AzureCloudServices.Worker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+		<Setting name="StorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint={Your Namespace};SharedSecretIssuer=owner;SharedSecretValue={Your Key}" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

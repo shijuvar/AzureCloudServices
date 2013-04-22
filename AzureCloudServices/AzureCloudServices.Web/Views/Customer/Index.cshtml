@@ -1,0 +1,20 @@
+﻿@model IEnumerable<AzureCloudServices.Domain.Models.Customer>
+
+<hgroup class="title">
+    <h1>Customer List</h1> 
+</hgroup>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="CustomerList">
+@Html.Partial("_List", Model)
+</div>
+ <script type="text/javascript">
+    $(function () {
+         setInterval(function () { 
+            $.get('@Url.Action("Index")', {}, function (view) {
+                 $("#CustomerList").html(view);
+             })
+         },10000);
+     });
+  </script>   

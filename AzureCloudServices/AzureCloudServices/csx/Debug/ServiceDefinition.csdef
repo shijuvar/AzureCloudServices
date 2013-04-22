@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCloudServices" schemaVersion="2012-10.1.8" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <WebRole name="AzureCloudServices.Web">
+    <LocalResources>
+      <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.ServiceBus.ConnectionString" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" localPort="80" />
+    </Endpoints>
+    <Certificates />
+  </WebRole>
+  <WorkerRole name="AzureCloudServices.Worker">
+    <LocalResources>
+      <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <ConfigurationSettings>
+      <Setting name="Microsoft.ServiceBus.ConnectionString" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="StorageConnectionString" />
+    </ConfigurationSettings>
+    <Endpoints />
+    <Certificates />
+  </WorkerRole>
+</ServiceDefinition>
